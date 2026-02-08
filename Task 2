@@ -1,0 +1,69 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Passenger
+{
+private:
+    int pid;
+    string name;
+    int age;
+
+public:
+    void getPassenger()
+    {
+        cin >> pid >> name >> age;
+    }
+
+    void showPassenger()
+    {
+        cout << "Passenger ID : " << pid << endl;
+        cout << "Name : " << name << endl;
+        cout << "Age : " << age << endl;
+    }
+};
+
+class Car
+{
+private:
+    int carNo;
+    string model;
+
+public:
+    void getCar()
+    {
+        cin >> carNo >> model;
+    }
+
+    // Dependency Relationship: Car uses Passenger
+    void showCarDetails(Passenger p)
+    {
+        cout << "Passenger Details" << endl;
+        p.showPassenger();
+
+        cout << "Car Details" << endl;
+        cout << "Car Number : " << carNo << endl;
+        cout << "Car Model : " << model << endl;
+        cout << endl;
+    }
+};
+
+int main()
+{
+    const int SIZE = 4;
+    Passenger p[SIZE];
+    Car c[SIZE];
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        p[i].getPassenger();
+        c[i].getCar();
+    }
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        c[i].showCarDetails(p[i]);
+    }
+
+    return 0;
+}
