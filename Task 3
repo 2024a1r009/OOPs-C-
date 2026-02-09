@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+class patient{
+    private:
+    int id ,age;
+    string bloodgroup,name;
+    public:
+    void getData(){
+        cin>>id >> name>>bloodgroup>>age;
+    }
+ void show(){
+    if(age>=22 && age<=30 && bloodgroup=="A"){
+        cout << id << " " << name << " " << bloodgroup << " " << age << endl;
+    }
+ }
+};
+int main(){
+    int n;
+    cin>>n;
+    patient p[n];
+    for(int i=0;i<n;i++){
+        p[i].getData();
+    }
+     for(int i=0;i<n;i++){
+        p[i].show();
+    }
+    return 0;
+}
