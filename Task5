@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+class BankAccount
+{
+    int accNo;
+    string name, type;
+    double balance;
+
+public:
+    void setData(int a, string n, string t, double b)
+    {
+        accNo = a;
+        name = n;
+        type = t;
+        balance = b;
+    }
+
+    void show()
+    {
+        cout << "Account Created Successfully\n";
+        cout << "Account Number: " << accNo << endl;
+        cout << "Name: " << name << endl;
+        cout << "Type: " << type << endl;
+        cout << "Balance: " << balance << endl;
+    }
+};
+
+BankAccount createAccount()  
+{
+    string type, name;
+    int accNo;
+    double bal;
+
+    cin >> type >> accNo >> name >> bal;
+
+    BankAccount b;
+
+    if(type != "" && accNo > 0 && bal >= 0)
+    {
+        b.setData(accNo, name, type, bal);
+        b.show();
+    }
+    else
+        cout << "Invalid Input";
+
+    return b;   
+}
+
+int main()
+{
+    createAccount();
+    return 0;
+}
